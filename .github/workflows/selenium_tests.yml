@@ -27,8 +27,11 @@ jobs:
       # - name: Run CIE June 2019 tests
       #   run: pytest test_CIEJune2019Markscheme.py   --tb=short --junitxml=results.xml
 
-      - name: Run CIE Specimen 2020 tests
-        run: pytest test_CIESpecimen2020Markscheme.py   --tb=short --junitxml=results.xml
+      # - name: Run CIE Specimen 2020 tests
+      #   run: pytest test_CIESpecimen2020Markscheme.py   --tb=short --junitxml=results.xml
+
+      - name: Run Edexcel January 2019 tests
+        run: pytest test_EdexcelJanuary2019Markscheme.py   --tb=short --junitxml=results.xml
 
             
       # Upload screenshots
