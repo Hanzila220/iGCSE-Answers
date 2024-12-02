@@ -33,8 +33,11 @@ jobs:
       # - name: Run Edexcel January 2019 Mark Scheme tests
       #   run: pytest test_EdexcelJanuary2019Markscheme.py   --tb=short --junitxml=results.xml
 
-      - name: Run Edexcel January 2019 Model Answers tests
-        run: pytest tesr_EdexcelJanuary2019ModelAnswers.py   --tb=short --junitxml=results.xml
+      # - name: Run Edexcel January 2019 Model Answers tests
+      #   run: pytest tesr_EdexcelJanuary2019ModelAnswers.py   --tb=short --junitxml=results.xml
+
+      - name: Run Edexcel January 2018 Model Answers tests
+        run: pytest test_EdexcelJanuary2018ModelAnswers.py   --tb=short --junitxml=results.xml
 
             
       # Upload screenshots
