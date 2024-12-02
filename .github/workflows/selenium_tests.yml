@@ -123,8 +123,11 @@ jobs:
       # - name: Run Edexcel June 2011 Mark Scheme tests
       #   run: pytest test_EdexcelJune2011Markscheme.py  --tb=short --junitxml=results.xml
 
-      - name: Run Edexcel June 2011 Model Answers tests
-        run: pytest test_EdexcelJune2011ModelAnswers.py  --tb=short --junitxml=results.xml
+      # - name: Run Edexcel June 2011 Model Answers tests
+      #   run: pytest test_EdexcelJune2011ModelAnswers.py  --tb=short --junitxml=results.xml
+
+      - name: Run Edexcel Specimen Mark scheme tests
+        run: pytest test_EdexcelSpecmienMarkScheme.py  --tb=short --junitxml=results.xml
 
   
       # Upload screenshots
