@@ -62,109 +62,105 @@ class TestWordpressLogin:
         raise Exception("Element not found or not clickable")
 
     def test_11Plus(self):
-    # Start time to calculate test duration
-    start_time = time.time()
+        # Start time to calculate test duration
+        start_time = time.time()
 
-    self.driver.get("https://smoothmaths.co.uk/login/")
-    self.driver.find_element(By.ID, "user_login").send_keys("hanzila@dovidigital.com")
-    self.driver.find_element(By.ID, "user_pass").send_keys("Hanzila*183258")
-    self.driver.find_element(By.ID, "wp-submit").click()
+        self.driver.get("https://smoothmaths.co.uk/login/")
+        self.driver.find_element(By.ID, "user_login").send_keys("hanzila@dovidigital.com")
+        self.driver.find_element(By.ID, "user_pass").send_keys("Hanzila*183258")
+        self.driver.find_element(By.ID, "wp-submit").click()
+        
+        main_page_url = "https://smoothmaths.co.uk/igcse/edexcel/june-2013-maths-past-papers/"
+        self.driver.get(main_page_url)
 
-    main_page_url = "https://smoothmaths.co.uk/igcse/edexcel/june-2013-maths-past-papers/"
-    self.driver.get(main_page_url)
+        expected_answers_urls = [
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper1f-june2013.pdf",
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper1fr-june2013.pdf",
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper2f-june2013.pdf",
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper2fr-june2013.pdf",
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper3h-june2013.pdf",
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper3hr-june2013.pdf",
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper4h-june2013.pdf",
+            "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper4hr-june2013.pdf",
+        ]
 
-    expected_answers_urls = [
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper1f-june2013.pdf",
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper1fr-june2013.pdf",
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper2f-june2013.pdf",
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper2fr-june2013.pdf",
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper3h-june2013.pdf",
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper3hr-june2013.pdf",
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper4h-june2013.pdf",
-        "https://smoothmaths.s3.eu-west-2.amazonaws.com/markscheme-paper4hr-june2013.pdf"
-    ]
+        answer_paper_locators = [
+            (By.CSS_SELECTOR, ".et_pb_blurb_1.et_pb_blurb .et_pb_module_header a"),
+            (By.CSS_SELECTOR, ".et_pb_blurb_3.et_pb_blurb .et_pb_module_header a"),
+            (By.CSS_SELECTOR, ".et_pb_blurb_5.et_pb_blurb .et_pb_module_header a"),
+            (By.CSS_SELECTOR, ".et_pb_blurb_7.et_pb_blurb .et_pb_module_header a"),
+            (By.CSS_SELECTOR, ".et_pb_blurb_9.et_pb_blurb .et_pb_module_header a"),
+            (By.CSS_SELECTOR, ".et_pb_blurb_12.et_pb_blurb .et_pb_module_header a"),
+            (By.CSS_SELECTOR, ".et_pb_blurb_14.et_pb_blurb .et_pb_module_header a"),
+            (By.CSS_SELECTOR, ".et_pb_blurb_17.et_pb_blurb .et_pb_module_header a"),
+        ]
 
-    answer_paper_locators = [
-        (By.CSS_SELECTOR, ".et_pb_blurb_1.et_pb_blurb .et_pb_module_header a"),
-        (By.CSS_SELECTOR, ".et_pb_blurb_3.et_pb_blurb .et_pb_module_header a"),
-        (By.CSS_SELECTOR, ".et_pb_blurb_5.et_pb_blurb .et_pb_module_header a"),
-        (By.CSS_SELECTOR, ".et_pb_blurb_7.et_pb_blurb .et_pb_module_header a"),
-        (By.CSS_SELECTOR, ".et_pb_blurb_9.et_pb_blurb .et_pb_module_header a"),
-        (By.CSS_SELECTOR, ".et_pb_blurb_12.et_pb_blurb .et_pb_module_header a"),
-        (By.CSS_SELECTOR, ".et_pb_blurb_14.et_pb_blurb .et_pb_module_header a"),
-        (By.CSS_SELECTOR, ".et_pb_blurb_17.et_pb_blurb .et_pb_module_header a"),
-    ]
+        results = []
 
-    # Ensure both lists have the same length
-    assert len(expected_answers_urls) == len(answer_paper_locators), \
-        f"Mismatch in lengths: expected_answers_urls ({len(expected_answers_urls)}) and answer_paper_locators ({len(answer_paper_locators)})"
+        # Test each Answer Paper link
+        for i, (by, value) in enumerate(answer_paper_locators):
+            try:
+                # Scroll to the element and get the clickable element
+                answer_paper_link = self.scroll_to_element(by, value)
+                answer_paper_link.click()
 
-    results = []
+                # Switch to the newly opened tab
+                WebDriverWait(self.driver, 5).until(lambda d: len(d.window_handles) > 1)
+                self.driver.switch_to.window(self.driver.window_handles[1])
 
-    # Test each Answer Paper link
-    for i, (by, value) in enumerate(answer_paper_locators):
-        try:
-            # Scroll to the element and get the clickable element
-            answer_paper_link = self.scroll_to_element(by, value)
-            answer_paper_link.click()
+                # Wait for the page to fully load
+                time.sleep(5)  # Adjust the sleep time if necessary
 
-            # Switch to the newly opened tab
-            WebDriverWait(self.driver, 5).until(lambda d: len(d.window_handles) > 1)
-            self.driver.switch_to.window(self.driver.window_handles[1])
+                # Verify the current URL
+                WebDriverWait(self.driver, 15).until(EC.url_to_be(expected_answers_urls[i]))
 
-            # Wait for the page to fully load
-            time.sleep(5)  # Adjust the sleep time if necessary
+                # Assert the URL is correct
+                assert self.driver.current_url == expected_answers_urls[i], f"Expected URL to be {expected_answers_urls[i]}, but got {self.driver.current_url}"
 
-            # Verify the current URL
-            WebDriverWait(self.driver, 15).until(EC.url_to_be(expected_answers_urls[i]))
+                # Wait additional time for rendering and then take a screenshot
+                time.sleep(3)  # Extra wait for rendering
+                screenshot_path = f"screenshots/EdexcelJune2013Markscheme_{i+1}.png"
+                self.driver.save_screenshot(screenshot_path)
 
-            # Assert the URL is correct
-            assert self.driver.current_url == expected_answers_urls[i], f"Expected URL to be {expected_answers_urls[i]}, but got {self.driver.current_url}"
+                # Log success status
+                results.append({
+                    "Test Case": f"Answer Paper {i+1} Link Verification",
+                    "Status": "Pass",
+                    "Expected URL": expected_answers_urls[i],
+                    "Actual URL": self.driver.current_url,
+                    "Screenshot": screenshot_path
+                })
 
-            # Wait additional time for rendering and then take a screenshot
-            time.sleep(3)  # Extra wait for rendering
-            screenshot_path = f"screenshots/EdexcelJune2013Markscheme_{i+1}.png"
-            self.driver.save_screenshot(screenshot_path)
-
-            # Log success status
-            results.append({
-                "Test Case": f"Answer Paper {i+1} Link Verification",
-                "Status": "Pass",
-                "Expected URL": expected_answers_urls[i],
-                "Actual URL": self.driver.current_url,
-                "Screenshot": screenshot_path
-            })
-
-            # Close the current tab and switch back to the main tab
-            self.driver.close()
-            self.driver.switch_to.window(self.driver.window_handles[0])
-
-        except Exception as e:
-            # Capture any errors and log failure status
-            screenshot_path = f"screenshots/EdexcelJune2013Markscheme_error_{i+1}.png"
-            self.driver.save_screenshot(screenshot_path)
-
-            results.append({
-                "Test Case": f"Answer Paper {i+1} Link Verification",
-                "Status": f"Fail: {str(e)}",
-                "Expected URL": expected_answers_urls[i],
-                "Actual URL": self.driver.current_url if self.driver.current_url else "N/A",
-                "Screenshot": screenshot_path
-            })
-
-            # Ensure the tab is closed and return to the main tab
-            if len(self.driver.window_handles) > 1:
+                # Close the current tab and switch back to the main tab
                 self.driver.close()
                 self.driver.switch_to.window(self.driver.window_handles[0])
 
-        # Go back to the main page for the next link
-        self.driver.get(main_page_url)
-        time.sleep(3)
+            except Exception as e:
+                # Capture any errors and log failure status
+                screenshot_path = f"screenshots/EdexcelJune2013Markscheme_error_{i+1}.png"
+                self.driver.save_screenshot(screenshot_path)
 
-    # Log results to CSV
-    self.append_to_csv(results)
+                results.append({
+                    "Test Case": f"Answer Paper {i+1} Link Verification",
+                    "Status": f"Fail: {str(e)}",
+                    "Expected URL": expected_answers_urls[i],
+                    "Actual URL": self.driver.current_url if self.driver.current_url else "N/A",
+                    "Screenshot": screenshot_path
+                })
 
-    # Calculate duration
-    end_time = time.time()
-    duration = end_time - start_time
-    print(f"Total test duration: {round(duration, 2)} seconds")
+                # Ensure the tab is closed and return to the main tab
+                if len(self.driver.window_handles) > 1:
+                    self.driver.close()
+                    self.driver.switch_to.window(self.driver.window_handles[0])
+
+            # Go back to the main page for the next link
+            self.driver.get(main_page_url)
+            time.sleep(3)
+
+        # Log results to CSV
+        self.append_to_csv(results)
+
+        # Calculate duration
+        end_time = time.time()
+        duration = end_time - start_time
+        print(f"Total test duration: {round(duration, 2)} seconds")
