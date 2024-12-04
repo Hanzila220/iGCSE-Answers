@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import os
 import pandas as pd
 
-
+# CSV file path to store all test results
 CSV_FILE_PATH = "test_results.csv"
 
 class TestWordpressLogin:
@@ -49,17 +49,18 @@ class TestWordpressLogin:
   
     def scroll_to_element(self, by, value):
         """Scroll incrementally until the element is in view and clickable."""
-        for _ in range(15):  # Increase the number of scroll attempts
+        for _ in range(30):  # Increase the number of scroll attempts
             try:
+                # Try to find and click the element
                 element = WebDriverWait(self.driver, 5).until(
                     EC.element_to_be_clickable((by, value))
                 )
                 return element
             except:
-                # Incrementally scroll down by 300px if the element is not yet clickable
-                self.driver.execute_script("window.scrollBy(0, 300);")
-                time.sleep(1)  # Pause briefly after each scroll
-        raise Exception("Element not found or not clickable")
+                # Incrementally scroll down by 500px (larger steps)
+                self.driver.execute_script("window.scrollBy(0, 500);")
+                time.sleep(0.5)  # Pause briefly after each scroll
+        raise Exception(f"Element {value} not found or not clickable after scrolling.")
 
     def test_11Plus(self):
         # Start time to calculate test duration
