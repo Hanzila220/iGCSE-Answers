@@ -79,7 +79,7 @@ class TestWordpressLogin:
         self.driver.find_element(By.ID, "wp-submit").click()
         
         # Open the target page
-        main_page_url = "https://smoothmaths.co.uk/igcse/edexcel/january-2019-maths-past-papers/"
+        main_page_url = "https://smoothmaths.co.uk/igcse/edexcel/january-2018-maths-past-papers/"
         self.driver.get(main_page_url)
         
         # Expected URLs for each answer paper
