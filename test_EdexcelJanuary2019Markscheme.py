@@ -70,7 +70,7 @@ class TestWordpressLogin:
         self.driver.find_element(By.ID, "user_pass").send_keys("Hanzila*183258")
         self.driver.find_element(By.ID, "wp-submit").click()
         
-        main_page_url = "https://smoothmaths.co.uk/igcse/cie/may-june-2018-maths-past-papers/"
+        main_page_url = "https://smoothmaths.co.uk/igcse/edexcel/january-2019-maths-past-papers/"
         self.driver.get(main_page_url)
 
         expected_answers_urls = [
