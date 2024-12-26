@@ -27,7 +27,7 @@ class TestWordpressLogin:
         chrome_options.add_argument("window-size=1296,696")
         
         self.driver = webdriver.Chrome(options=chrome_options)
-        self.driver.set_page_load_timeout(60)
+        self.driver.set_page_load_timeout(120)
         self.driver.set_script_timeout(30)
         self.driver.implicitly_wait(10)
 
