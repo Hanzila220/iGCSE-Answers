@@ -24,113 +24,113 @@ jobs:
           python -m pip install --upgrade pip
           pip install selenium pytest webdriver-manager pandas
 
-      # - name: Run CIE June 2019 tests
-      #   run: pytest test_CIEJune2019Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run CIE June 2019 tests
+        run: pytest test_CIEJune2019Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run CIE Specimen 2020 tests
-      #   run: pytest test_CIESpecimen2020Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run CIE Specimen 2020 tests
+        run: pytest test_CIESpecimen2020Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2019 Mark Scheme tests
-      #   run: pytest test_EdexcelJanuary2019Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2019 Mark Scheme tests
+        run: pytest test_EdexcelJanuary2019Markscheme.py   --tb=short --junitxml=results.xml
 
       - name: Run Edexcel January 2019 Model Answers tests
         run: pytest test_EdexcelJanuary2019ModelAnswers.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2018 Model Answers tests
-      #   run: pytest test_EdexcelJanuary2018ModelAnswers.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2018 Model Answers tests
+        run: pytest test_EdexcelJanuary2018ModelAnswers.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2018 Mark Scheme tests
-      #   run: pytest test_EdexcelJanuary2018Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2018 Mark Scheme tests
+        run: pytest test_EdexcelJanuary2018Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2018 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2018Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2018 Mark Scheme tests
+        run: pytest test_EdexcelJune2018Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2018 Model Answer tests
-      #   run: pytest test_EdexcelJune2018ModelAnswers.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2018 Model Answer tests
+        run: pytest test_EdexcelJune2018ModelAnswers.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2017 Mark Scheme tests
-      #   run: pytest test_EdexcelJanuary2017Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2017 Mark Scheme tests
+        run: pytest test_EdexcelJanuary2017Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2017 Model Answers tests
-      #   run: pytest test_EdexcelJanuary2017ModelAnswers.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2017 Model Answers tests
+        run: pytest test_EdexcelJanuary2017ModelAnswers.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2017 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2017Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2017 Mark Scheme tests
+        run: pytest test_EdexcelJune2017Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2017 Model Answers tests
-      #   run: pytest test_EdexcelJune2017ModelAnswers.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2017 Model Answers tests
+        run: pytest test_EdexcelJune2017ModelAnswers.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2016 Model Answers tests
-      #   run: pytest test_EdexcelJanuary2016ModelAnswers.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2016 Model Answers tests
+        run: pytest test_EdexcelJanuary2016ModelAnswers.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2016 Mark Scheme tests
-      #   run: pytest test_EdexcelJanuary2016MarkScheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2016 Mark Scheme tests
+        run: pytest test_EdexcelJanuary2016MarkScheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2016 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2016Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2016 Mark Scheme tests
+        run: pytest test_EdexcelJune2016Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2016 Model Answers tests
-      #   run: pytest test_EdexcelJune2016ModelAnswers.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2016 Model Answers tests
+        run: pytest test_EdexcelJune2016ModelAnswers.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2015 Mark Scheme tests
-      #   run: pytest test_EdexcelJanuary2015Markscheme.py   --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2015 Mark Scheme tests
+        run: pytest test_EdexcelJanuary2015Markscheme.py   --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2015 Model Answers tests
-      #   run: pytest test_EdexcelJanuary2015ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2015 Model Answers tests
+        run: pytest test_EdexcelJanuary2015ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2015 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2015Markscheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2015 Mark Scheme tests
+        run: pytest test_EdexcelJune2015Markscheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2015 Model Answers tests
-      #   run: pytest test_EdexcelJune2015ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2015 Model Answers tests
+        run: pytest test_EdexcelJune2015ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2014 Mark scheme tests
-      #   run: pytest test_EdexcelJanuary2014MarkScheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2014 Mark scheme tests
+        run: pytest test_EdexcelJanuary2014MarkScheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2014 Model Answers tests
-      #   run: pytest test_EdexcelJanuary2014ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2014 Model Answers tests
+        run: pytest test_EdexcelJanuary2014ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2014 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2014Markscheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2014 Mark Scheme tests
+        run: pytest test_EdexcelJune2014Markscheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2014 Model Answers tests
-      #   run: pytest test_EdexcelJune2014ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2014 Model Answers tests
+        run: pytest test_EdexcelJune2014ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2013 Mark Scheme tests
-      #   run: pytest test_EdexcelJanuary2013Markscheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2013 Mark Scheme tests
+        run: pytest test_EdexcelJanuary2013Markscheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2013 Model Answers tests
-      #   run: pytest test_EdexcelJanuary2013ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2013 Model Answers tests
+        run: pytest test_EdexcelJanuary2013ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2013 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2013Markscheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2013 Mark Scheme tests
+        run: pytest test_EdexcelJune2013Markscheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2013 Model Answers tests
-      #   run: pytest test_EdexcelJune2013ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2013 Model Answers tests
+        run: pytest test_EdexcelJune2013ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2012 Mark Scheme tests
-      #   run: pytest test_EdexcelJanuary2012Markscheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2012 Mark Scheme tests
+        run: pytest test_EdexcelJanuary2012Markscheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel January 2012 Model Answers tests
-      #   run: pytest test_EdexcelJanuary2012ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel January 2012 Model Answers tests
+        run: pytest test_EdexcelJanuary2012ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2012 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2012Markscheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2012 Mark Scheme tests
+        run: pytest test_EdexcelJune2012Markscheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2012 Model Answers tests
-      #   run: pytest test_EdexcelJune2012ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2012 Model Answers tests
+        run: pytest test_EdexcelJune2012ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2011 Mark Scheme tests
-      #   run: pytest test_EdexcelJune2011Markscheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2011 Mark Scheme tests
+        run: pytest test_EdexcelJune2011Markscheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel June 2011 Model Answers tests
-      #   run: pytest test_EdexcelJune2011ModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel June 2011 Model Answers tests
+        run: pytest test_EdexcelJune2011ModelAnswers.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel Specimen Mark scheme tests
-      #   run: pytest test_EdexcelSpecmienMarkScheme.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel Specimen Mark scheme tests
+        run: pytest test_EdexcelSpecmienMarkScheme.py  --tb=short --junitxml=results.xml
 
-      # - name: Run Edexcel Specimen Model Answers tests
-      #   run: pytest test_EdexcelSpecimenModelAnswers.py  --tb=short --junitxml=results.xml
+      - name: Run Edexcel Specimen Model Answers tests
+        run: pytest test_EdexcelSpecimenModelAnswers.py  --tb=short --junitxml=results.xml
 
   
       # Upload screenshots
